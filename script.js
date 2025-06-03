@@ -113,6 +113,7 @@ function calculate(equation) {
         preview = eval(input.slice(0, input.length - 1)) ?? "";
     }
     let equationAsStr = equation.replaceAll("*", "×");
+    equationAsStr = equationAsStr.replaceAll("-", "−");
     equationAsStr = equationAsStr.replaceAll("/", "÷");
     inputField.innerHTML = equationAsStr;
     inputField.scrollLeft = inputField.scrollWidth - inputField.clientWidth;
