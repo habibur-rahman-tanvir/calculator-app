@@ -2,7 +2,115 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 html {
     font-size: 62.5%;
+}
+:root {
+    --main-color-dark: #1c1c1c;
+    --main-color-light: #f2f3f7;
+    --operation-btn-color: #e89c1a;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: darkgrey;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: var(--main-color-dark);
+    max-width: 400px;
+    width: 100%;
+    color: white;
+    padding: 1rem;
+    border: 3px solid gray;
+    border-radius: 10px;
+}
+
+.key-pad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    aspect-ratio: 4/5;
+    gap: 10px;
+}
+.key-pad .equals {
+    grid-column: 3 / span 2;
+}
+.key-pad button {
+    font-size: large;
+    color: white;
+    background-color: var(--main-color-dark);
+    border-radius: 10px;
+    border: none;
+    box-shadow: -1px -1px 5px rgba(255, 255, 255, 0.353);
+    font-weight: 900;
+}
+.key-pad button[data-type="operation"] {
+    color: var(--operation-btn-color);
+    font-size: x-large;
+}
+.key-pad button[data-type="ac"] {
+    color: red;
+}
+.key-pad button[data-type="delete"] {
+    font-size: x-large;
+}
+.key-pad button[data-type="menu"] {
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.451);
+}
+.key-pad button[data-type="equal"] {
+    grid-column: 3 / span 2;
+    color: var(--operation-btn-color);
+    font-size: x-large;
+}
+.key-pad button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 3px rgba(28, 194, 28, 0.63);
+}
+
+.display {
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.input {
+    font-size: 4rem;
+    text-align: right;
+    margin-bottom: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow-x: scroll;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.input::-webkit-scrollbar {
+    display: none;
+}
+.preview {
+    font-size: 2.5rem;
+    text-align: right;
+    margin-bottom: 3rem;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 400px) {
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: end;
+        padding-bottom: 8vh;
+        border: none;
+        border-radius: 0;
+    }
 }

@@ -4,10 +4,54 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Calculator</title>
+
         <link rel="stylesheet" href="./style.css" />
+        <link
+            href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+            rel="stylesheet"
+        />
     </head>
     <body>
-        <h1>Hello Calculator</h1>
+        <div class="calculator">
+            <div class="display">
+                <div id="input" class="input">2+5×100÷4</div>
+                <div id="preview" class="preview">127</div>
+            </div>
+
+            <div id="keypad" class="key-pad">
+                <!-- Row 1 -->
+                <button data-type="menu">
+                    <i class="bx bx-menu-select"></i>
+                </button>
+                <button data-type="ac">AC</button>
+                <button data-type="delete">
+                    <i class="bx bx-backspace"></i>
+                </button>
+                <button data-type="operation">÷</button>
+
+                <!-- Row 2 -->
+                <button value="7" data-type="number">7</button>
+                <button value="8" data-type="number">8</button>
+                <button value="9" data-type="number">9</button>
+                <button value="*" data-type="operation">×</button>
+
+                <!-- Row 3 -->
+                <button value="4" data-type="number">4</button>
+                <button value="5" data-type="number">5</button>
+                <button value="6" data-type="number">6</button>
+                <button value="-" data-type="operation">-</button>
+
+                <!-- Row 4 -->
+                <button value="1" data-type="number">1</button>
+                <button value="2" data-type="number">2</button>
+                <button value="3" data-type="number">3</button>
+                <button value="+" data-type="operation">+</button>
+                <!-- Row 5 -->
+                <button value="." data-type="number">.</button>
+                <button value="0" data-type="number">0</button>
+                <button value="=" data-type="equal">=</button>
+            </div>
+        </div>
 
         <script src="./script.js"></script>
     </body>
