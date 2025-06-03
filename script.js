@@ -90,7 +90,7 @@ function addOperator(operator) {
     if (isFinite(input.at(-1)) || input.length == 0) {
         input += operator;
     } else {
-        input = input.slice(0, input.length - 1) + operator;
+        input = input.slice(0, -1) + operator;
     }
 }
 
@@ -115,6 +115,7 @@ function calculate(equation) {
     let equationAsStr = equation.replaceAll("*", "×");
     equationAsStr = equationAsStr.replaceAll("/", "÷");
     inputField.innerHTML = equationAsStr;
+    inputField.scrollLeft = inputField.scrollWidth - inputField.clientWidth;
     if (isFinite(preview)) {
         previewField.innerHTML = preview;
     } else {
