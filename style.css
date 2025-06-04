@@ -9,7 +9,6 @@ html {
 }
 :root {
     --main-color-dark: #1c1c1c;
-    --main-color-light: #f2f3f7;
     --operation-btn-color: #e89c1a;
 }
 
@@ -22,7 +21,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .calculator {
     background-color: var(--main-color-dark);
     max-width: 400px;
@@ -103,6 +101,11 @@ body {
     margin-bottom: 3rem;
     font-style: italic;
     opacity: 0.5;
+}
+
+.highlight {
+    transform: scale(0.95) !important;
+    box-shadow: 0 0 3px rgba(28, 194, 28, 0.63) !important;
 }
 
 .alert {
