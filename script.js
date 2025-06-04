@@ -86,8 +86,21 @@ function clearAll() {
 }
 
 function addOperator(operator) {
-    if (input.length == 0 && (operator == "*" || operator == "/")) return;
-    if (isFinite(input.at(-1)) || input.length == 0) {
+    if (input.length === 0) {
+        if ("+-".includes(operator)) input += operator;
+        return;
+    }
+    if (input.length === 1) {
+        let first = input.at(0);
+        if ("+-".includes(first) && "+-".includes(operator)) {
+            input = operator;
+        } else if (isFinite(first)) {
+            input += operator
+        }
+        return;
+    }
+    let last = input.at(-1);
+    if (isFinite(last)) {
         input += operator;
     } else {
         input = input.slice(0, -1) + operator;
@@ -124,3 +137,5 @@ function calculate(equation) {
         previewField.innerHTML = "Math ERROR";
     }
 }
+
+
