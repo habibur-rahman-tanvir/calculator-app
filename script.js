@@ -120,22 +120,39 @@ function getLastNumber(equation) {
 }
 
 function calculate(equation) {
-    if (isFinite(input.at(-1))) {
-        preview = eval(equation) ?? "";
-    } else {
-        preview = eval(input.slice(0, input.length - 1)) ?? "";
-    }
-    let equationAsStr = equation.replaceAll("*", "×");
-    equationAsStr = equationAsStr.replaceAll("-", "−");
-    equationAsStr = equationAsStr.replaceAll("/", "÷");
-    inputField.innerHTML = equationAsStr;
-    inputField.scrollLeft = inputField.scrollWidth - inputField.clientWidth;
-    if (isFinite(preview)) {
-        previewField.innerHTML = preview;
-    } else {
-        preview = ""
-        previewField.innerHTML = "Math ERROR";
+    try {
+        if (isFinite(input.at(-1))) {
+            preview = eval(equation) ?? "";
+        } else {
+            preview = eval(input.slice(0, input.length - 1)) ?? "";
+        }
+        let equationAsStr = equation.replaceAll("*", "×");
+        equationAsStr = equationAsStr.replaceAll("-", "−");
+        equationAsStr = equationAsStr.replaceAll("/", "÷");
+        inputField.innerHTML = equationAsStr;
+        inputField.scrollLeft = inputField.scrollWidth - inputField.clientWidth;
+        if (isFinite(preview)) {
+            previewField.innerHTML = preview;
+        } else {
+            preview = ""
+            previewField.innerHTML = "Math ERROR";
+        }
+    } catch (err) {
+        showError(err, 2000);
+        clearAll();
     }
 }
+
+async function showError(err, ms = 1500) {
+    let calculator = document.querySelector("#calculator");
+    let alert = document.createElement("div");
+    alert.className = "alert";
+    alert.textContent = err.message;
+    calculator.append(alert);
+    setTimeout(() => {
+        alert.remove();
+    }, ms);
+}
+
 
 

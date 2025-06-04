@@ -31,6 +31,7 @@ body {
     padding: 1rem;
     border: 3px solid gray;
     border-radius: 10px;
+    position: relative;
 }
 
 .key-pad {
@@ -102,6 +103,21 @@ body {
     margin-bottom: 3rem;
     font-style: italic;
     opacity: 0.5;
+}
+
+.alert {
+    width: 95%;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.422);
+    color: yellow;
+    font-size: 1.4rem;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(246, 255, 0, 0.451);
+    border-radius: 5px;
+    font-style: italic;
 }
 
 @media only screen and (max-width: 400px) {
