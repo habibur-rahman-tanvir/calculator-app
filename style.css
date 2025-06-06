@@ -50,6 +50,7 @@ body {
     border: none;
     box-shadow: -1px -1px 5px rgba(255, 255, 255, 0.353);
     font-weight: 900;
+    outline: none;
 }
 .key-pad button[data-type="operator"] {
     color: var(--operation-btn-color);
