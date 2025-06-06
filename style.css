@@ -61,12 +61,11 @@ body {
 .key-pad button[data-type="delete"] {
     font-size: x-large;
 }
-.key-pad button[data-type="menu"] {
+.key-pad button[data-type="bracket"] {
     font-size: x-large;
-    color: rgba(255, 255, 255, 0.451);
+    color: rgba(255, 255, 255, 0.144);
 }
 .key-pad button[data-type="equal"] {
-    grid-column: 3 / span 2;
     color: var(--operation-btn-color);
     font-size: x-large;
 }

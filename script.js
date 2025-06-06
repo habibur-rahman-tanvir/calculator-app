@@ -167,6 +167,11 @@ keypad.addEventListener("click", function (event) {
         calculate(input);
         return;
     }
+    if (type == "bracket") {
+        // In construction part
+        console.log("Bracket: " + button.value);
+        return;
+    }
     if (type == "delete") {
         removeDigit();
         calculate(input);
@@ -200,13 +205,8 @@ let oppValue = ["+", "-", "*", "/"];
 document.addEventListener("keydown", function (event) {
     if (event.repeat) return;
     let key = event.key;
-    if ([...digitValue, ...oppValue, "=", "Delete", "Backspace", "."].includes(key)) {
+    if ([...digitValue, ...oppValue, "=", "Delete", "Backspace", "Enter", ".", "(", ")"].includes(key)) {
         let button = keypad.querySelector(`button[value="${key}"]`);
-        highlight(button);
-        return;
-    }
-    if (key === "Enter") {
-        let button = keypad.querySelector(`button[value="="]`);
         highlight(button);
         return;
     }
@@ -216,38 +216,39 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("keyup", event => {
     let key = event.key;
     let button = keypad.querySelector(`button[value="${key}"]`);
+    if (!button) return;
+    highlight(button, false);
+
     if (digitValue.includes(key)) {
-        highlight(button, false);
         addDigit(key);
         calculate(input);
         return;
     }
     if (oppValue.includes(key)) {
-        highlight(button, false);
         addOperator(key);
         calculate(input);
         return;
     }
     if (key === ".") {
-        highlight(button, false);
         addPoint(key);
         calculate(input);
         return;
     }
+    if (key === "(" || key === ")") {
+        // In construction part
+        console.log("Bracket: " + key);
+        return;
+    }
     if (key === "Backspace") {
-        highlight(button, false);
         removeDigit();
         calculate(input);
         return;
     }
     if (key === "Delete") {
-        highlight(button, false);
         clearAll();
         return;
     }
     if (key === "Enter" || key === "=") {
-        let equalsBtn = keypad.querySelector(`button[value="="]`);
-        highlight(equalsBtn, false);
         input = "" + preview;
         preview = "";
         inputField.innerHTML = input;
